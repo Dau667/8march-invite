@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Приглашение на 8 Марта</title>
+
+<style>
+body { margin:0; height:100vh; font-family:'Segoe UI'; display:flex; justify-content:center; align-items:center; background:linear-gradient(135deg,#ff758c,#ff7eb3); overflow:hidden; }
+.card { background:rgba(255,255,255,0.15); backdrop-filter:blur(15px); padding:40px; border-radius:25px; text-align:center; color:white; width:90%; max-width:600px; opacity:0; animation:fadeIn 2s forwards; }
+h1{font-size:34px;} p{font-size:18px;margin:20px 0;line-height:1.6;} button{padding:15px 30px;border-radius:30px;border:none;font-size:18px;cursor:pointer;background:white;color:#ff4f81;transition:0.3s;} button:hover{transform:scale(1.1);}
+@keyframes fadeIn{to{opacity:1;}} .petal{position:absolute;top:-50px;font-size:24px;animation:fall linear infinite;} @keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>🌸 Дорогие преподаватели! 🌸</h1>
+<p>С благодарностью и уважением поздравляем вас с Международным женским днём! 💐<br>Приглашаем вас на праздничный концерт 8 марта в 15:00 в актовом зале.</p>
+<button onclick="document.getElementById('music').play()">Включить музыку 🎵</button>
+</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function createPetal(){const petal=document.createElement("div");petal.classList.add("petal");petal.innerHTML="🌸";petal.style.left=Math.random()*100+"vw";petal.style.animationDuration=(Math.random()*5+5)+"s";document.body.appendChild(petal);setTimeout(()=>petal.remove(),10000);}
+setInterval(createPetal,300);
+</script>
+
+</body>
+</html>
